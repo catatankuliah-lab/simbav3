@@ -3,9 +3,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const { connectDB } = require('./config/database');
-const bbmRoutes = require('./routes/bbmRoutes');
-const jenisKendaraanRoutes = require('./routes/jenisKendaraanRoutes');
-const mobilRoutes = require('./routes/mobilRoutes');
+const hakAksesRoutes = require('./routes/hakAksesRoutes');
+const userRoutes = require('./routes/userRoutes');
+const kantorCabangRoutes = require('./routes/kantorCabangRoutes');
 const path = require('path');
 
 const app = express();
@@ -21,9 +21,9 @@ app.use(express.json());
 app.use('/uploads/mobil', express.static(path.join(__dirname, 'uploads/mobil')));
 
 // Menggunakan routes
-app.use('/api/bbm', bbmRoutes);
-app.use('/api/jeniskendaraan', jenisKendaraanRoutes);
-app.use('/api/mobil', mobilRoutes);
+app.use('/api/hakakses', hakAksesRoutes);
+app.use('/api/user', userRoutes);
+app.use('/api/kantorcabang', kantorCabangRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);

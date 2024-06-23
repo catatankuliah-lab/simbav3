@@ -1,18 +1,14 @@
 const { DataTypes } = require('sequelize');
 const { sequelize } = require('../config/database');
 
-const BBM = sequelize.define('bbm', {
-    id_bbm: {
+const KantorCabang = sequelize.define('kantor_cabang', {
+    id_kantor_cabang: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
-    nama_bbm: {
+    nama_kantor_cabang: {
         type: DataTypes.STRING,
-        allowNull: false
-    },
-    harga_bbm: {
-        type: DataTypes.INTEGER,
         allowNull: false
     },
     createdAt: {
@@ -25,15 +21,15 @@ const BBM = sequelize.define('bbm', {
     }
 }, {
     timestamps: false,
-    tableName: 'bbm',
+    tableName: 'kantor_cabang',
     hooks: {
-        beforeCreate: (bbm) => {
-            bbm.nama_bbm = bbm.nama_bbm.toUpperCase();
+        beforeCreate: (kantor_cabang) => {
+            kantor_cabang.nama_kantor_cabang = kantor_cabang.nama_kantor_cabang.toUpperCase();
         },
-        beforeUpdate: (bbm) => {
-            bbm.nama_bbm = bbm.nama_bbm.toUpperCase();
+        beforeUpdate: (kantor_cabang) => {
+            kantor_cabang.nama_kantor_cabang = kantor_cabang.nama_kantor_cabang.toUpperCase();
         }
     }
 });
 
-module.exports = BBM;
+module.exports = KantorCabang;

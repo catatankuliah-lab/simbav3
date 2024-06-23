@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const bbmController = require('../controllers/bbmController');
+const userController = require('../controllers/userController');
 
 // Route untuk menambahkan mobil baru
-router.post('/add', bbmController.addBbm);
+router.post('/add', userController.addUser);
 
 // Route untuk membaca semua data mobil
-router.get('/all', bbmController.getAllBbm);
+router.get('/all', userController.getAllUser);
 
 module.exports = router;
