@@ -2,7 +2,7 @@
 const { Sequelize } = require('sequelize');
 
 // Membuat koneksi ke database MySQL
-const sequelize = new Sequelize('u1561176_delapandelapanlogistics_maintenance', 'u1561176_pineapple', 'Nanas30037', {
+const sequelize = new Sequelize('u1561176_simbav2', 'u1561176_pineapple', 'Nanas30037', {
     host: 'kalaitu.org',
     dialect: 'mysql'
 });
