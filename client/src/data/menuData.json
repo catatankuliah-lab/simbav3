@@ -1,0 +1,46 @@
+[{
+        "header": "Dashboard",
+        "items": [{
+            "text": "Dashboard",
+            "icon": "bx bx-home",
+            "available": true,
+            "link": "/"
+        }]
+    },
+    {
+        "header": "Mobil dan Driver",
+        "items": [{
+                "text": "BBM",
+                "icon": "bx bx-gas-pump",
+                "available": true,
+                "link": "/bbm"
+            },
+            {
+                "text": "Jenis/Tipe Mobil",
+                "icon": "bx bx-folder",
+                "available": true,
+                "link": "/tipe"
+            },
+            {
+                "text": "Mobil",
+                "icon": "bx bx-car",
+                "available": true,
+                "link": "/mobil"
+            },
+            {
+                "text": "Driver",
+                "icon": "bx bx-user",
+                "available": true,
+                "link": "/driver"
+            }
+        ]
+    }, {
+        "header": "Maintenance",
+        "items": [{
+            "text": "Data Maintenance",
+            "icon": "bx bx-cog",
+            "available": true,
+            "link": "/maintenance"
+        }]
+    }
+]
