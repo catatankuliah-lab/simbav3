@@ -10,14 +10,6 @@ const Kecamatan = sequelize.define(
       primaryKey: true,
       autoIncrement: true,
     },
-    kode_kecamatan: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    nama_kecamatan: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
     id_kabupaten_kota: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -25,6 +17,14 @@ const Kecamatan = sequelize.define(
         model: Kabupaten,
         key: "id_kabupaten_kota",
       },
+    },
+    kode_kecamatan: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    nama_kecamatan: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     createdAt: {
       type: DataTypes.DATE,

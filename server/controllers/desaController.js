@@ -6,12 +6,16 @@ const Provinsi = require("../models/provinsiModel");
 
 // Menangani permintaan untuk menambahkan mobil baru
 const addDesa = async (req, res) => {
-  const { kode_desa_kelurahan, nama_desa_kelurahan, id_kecamatan } = req.body;
+  const {
+    kode_desa_keluarahan,
+    desa_keluarahan,
+    id_kecamatan
+  } = req.body;
   try {
     const newDesa = await Desa.create({
-      kode_desa_kelurahan,
-      nama_desa_kelurahan,
-      id_kecamatan,
+      kode_desa_keluarahan,
+      desa_keluarahan,
+      id_kecamatan
     });
     res.status(200).send(newDesa);
   } catch (error) {
@@ -22,7 +26,7 @@ const addDesa = async (req, res) => {
 
 const getAllDesa = async (req, res) => {
   try {
-    const desas = await Desa.findAll({
+    const desa = await Desa.findAll({
       include: [
         {
           model: Kecamatan,
@@ -30,11 +34,15 @@ const getAllDesa = async (req, res) => {
           include: {
             model: Kabupaten,
             as: "kabupaten_kota",
+            include: {
+              model: Provinsi,
+              as: "provinsi",
+            },
           },
         },
       ],
     });
-    res.status(200).json(desas);
+    res.status(200).json(desa);
   } catch (error) {
     console.error(error);
     res.status(500).send("Server Error");

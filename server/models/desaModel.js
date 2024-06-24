@@ -3,20 +3,12 @@ const { sequelize } = require("../config/database");
 const Kecamatan = require("./kecamatanModel");
 
 const Desa = sequelize.define(
-  "desa",
+  "desa_kelurahan",
   {
     id_desa_kelurahan: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
-    },
-    kode_desa_kelurahan: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    nama_desa_kelurahan: {
-      type: DataTypes.STRING,
-      allowNull: false,
     },
     id_kecamatan: {
       type: DataTypes.INTEGER,
@@ -25,6 +17,14 @@ const Desa = sequelize.define(
         model: Kecamatan,
         key: "id_kecamatan",
       },
+    },
+    kode_desa_kelurahan: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    nama_desa_kelurahan: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     createdAt: {
       type: DataTypes.DATE,
@@ -39,21 +39,18 @@ const Desa = sequelize.define(
     timestamps: false,
     tableName: "desa_kelurahan",
     hooks: {
-      beforeCreate: (desa) => {
-        desa.kode_desa_kelurahan = desa.kode_desa_kelurahan.toUpperCase();
-        desa.nama_desa_kelurahan = desa.nama_desa_kelurahan.toUpperCase();
+      beforeCreate: (desa_kelurahan) => {
+        desa_kelurahan.kode_desa_kelurahan = desa_kelurahan.kode_desa_kelurahan.toUpperCase();
+        desa_kelurahan.nama_desa_kelurahan = desa_kelurahan.nama_desa_kelurahan.toUpperCase();
       },
-      beforeUpdate: (desa) => {
-        desa.kode_desa_kelurahan = desa.kode_desa_kelurahan.toUpperCase();
-        desa.nama_desa_kelurahan = desa.nama_desa_kelurahan.toUpperCase();
+      beforeUpdate: (desa_kelurahan) => {
+        desa_kelurahan.kode_desa_kelurahan = desa_kelurahan.kode_desa_kelurahan.toUpperCase();
+        desa_kelurahan.nama_desa_kelurahan = desa_kelurahan.nama_desa_kelurahan.toUpperCase();
       },
     },
   }
 );
 
-Desa.belongsTo(Kecamatan, {
-  foreignKey: "id_kecamatan",
-  as: "kecamatan",
-});
+Desa.belongsTo(Kecamatan, { foreignKey: 'id_kecamatan', as: 'kecamatan' });
 
 module.exports = Desa;
