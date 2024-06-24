@@ -1,7 +1,6 @@
-const { DataTypes } = require("sequelize");
-const { sequelize } = require("../config/database");
-const Provinsi = require("./provinsiModel");
-const Kecamatan = require("./kecamatanModel");
+const { DataTypes } = require('sequelize');
+const { sequelize } = require('../config/database');
+const Provinsi = require('./provinsiModel');
 
 const Kabupaten = sequelize.define(
   "kabupaten",
@@ -46,7 +45,7 @@ const Kabupaten = sequelize.define(
         kabupaten.nama_kabupaten_kota =
           kabupaten.nama_kabupaten_kota.toUpperCase();
       },
-      beforeUpdate: (Mobil) => {
+      beforeUpdate: (kabupaten) => {
         kabupaten.kode_kabupaten_kota =
           kabupaten.kode_kabupaten_kota.toUpperCase();
         kabupaten.nama_kabupaten_kota =
@@ -56,16 +55,6 @@ const Kabupaten = sequelize.define(
   }
 );
 
-Kabupaten.associate = function (models) {
-  Kabupaten.belongsTo(Provinsi, {
-    foreignKey: "id_provinsi",
-    as: "provinsi",
-  });
-
-  Kabupaten.hasMany(Kecamatan, {
-    foreignKey: "id_kabupaten_kota",
-    as: "kecamatans",
-  });
-};
+Kabupaten.belongsTo(Provinsi, { foreignKey: 'id_provinsi', as: 'provinsi' });
 
 module.exports = Kabupaten;

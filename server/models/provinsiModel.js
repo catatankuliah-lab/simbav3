@@ -1,8 +1,7 @@
 const { DataTypes } = require("sequelize");
 const { sequelize } = require("../config/database");
 
-const Provinsi = sequelize.define(
-  "provinsi",
+const Provinsi = sequelize.define("provinsi",
   {
     id_provinsi: {
       type: DataTypes.INTEGER,
@@ -41,12 +40,5 @@ const Provinsi = sequelize.define(
     },
   }
 );
-
-Provinsi.associate = function (models) {
-  Provinsi.hasMany(models.KabupatenKota, {
-    foreignKey: "id_provinsi",
-    as: "kabupaten_kotas",
-  });
-};
 
 module.exports = Provinsi;

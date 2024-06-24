@@ -23,8 +23,7 @@ const getAllKabupaten = async (req, res) => {
     const kabupatens = await Kabupaten.findAll({
       include: {
         model: Provinsi,
-        as: "provinsi",
-        attributes: ["id_provinsi"],
+        as: "provinsi"
       },
     });
     res.status(200).send(kabupatens);

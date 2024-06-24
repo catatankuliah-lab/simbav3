@@ -51,11 +51,7 @@ const Kecamatan = sequelize.define(
   }
 );
 
-Kecamatan.associate = function (models) {
-  Kecamatan.belongsTo(models.KabupatenKota, {
-    foreignKey: "id_kabupaten_kota",
-    as: "kabupaten_kota",
-  });
-};
+Kecamatan.belongsTo(Kabupaten, { foreignKey: 'id_kabupaten_kota', as: 'kabupaten_kota' });
+
 
 module.exports = Kecamatan;
