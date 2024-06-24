@@ -15,7 +15,7 @@ const picGUdangRoutes = require("./routes/picGudangRoutes");
 const checkerGudangRoutes = require("./routes/checkerGudangRoutes");
 const kantorCabangRoutes = require("./routes/kantorCabangRoutes");
 const gudangRoutes = require("./routes/gudangRoutes");
-const masterdatakpmRoutes = require("./routes/masterdatakpmRoutes");
+const masterdatakpmRoutes = require("./routes/masterDataKpmRoutes");
 const path = require("path");
 
 const app = express();
