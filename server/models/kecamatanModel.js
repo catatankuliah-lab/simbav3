@@ -43,7 +43,7 @@ const Kecamatan = sequelize.define(
         kecamatan.kode_kecamatan = kecamatan.kode_kecamatan.toUpperCase();
         kecamatan.nama_kecamatan = kecamatan.nama_kecamatan.toUpperCase();
       },
-      beforeUpdate: (Mobil) => {
+      beforeUpdate: (kecamatan) => {
         kecamatan.kode_kecamatan = kecamatan.kode_kecamatan.toUpperCase();
         kecamatan.nama_kecamatan = kecamatan.nama_kecamatan.toUpperCase();
       },

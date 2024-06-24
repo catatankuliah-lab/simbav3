@@ -11,6 +11,8 @@ const hakAksesRoutes = require('./routes/hakAksesRoutes');
 const userRoutes = require('./routes/userRoutes');
 const adminKancabRoutes = require('./routes/adminKancabRoutes');
 const petugasPenyalurRoutes = require('./routes/petugasPenyalurRoutes');
+const picGUdangRoutes = require('./routes/picGudangRoutes');
+const checkerGudangRoutes = require('./routes/checkerGudangRoutes');
 const kantorCabangRoutes = require('./routes/kantorCabangRoutes');
 const gudangRoutes = require('./routes/gudangRoutes');
 const path = require('path');
@@ -36,6 +38,8 @@ app.use('/api/hakakses', hakAksesRoutes);
 app.use('/api/user', userRoutes);
 app.use('/api/adminkancab', adminKancabRoutes);
 app.use('/api/petugaspenyalur', petugasPenyalurRoutes);
+app.use('/api/picgudang', picGUdangRoutes);
+app.use('/api/checkergudang', checkerGudangRoutes);
 app.use('/api/kantorcabang', kantorCabangRoutes);
 app.use('/api/gudang', gudangRoutes);
 
