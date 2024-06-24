@@ -1,7 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const { connectDB } = require('./config/database');
+const {
+  connectDB
+} = require('./config/database');
 const alokasiRoutes = require('./routes/alokasiRoutes');
 const provinsiRoutes = require('./routes/provinsiRoutes');
 const kabupatenRoutes = require('./routes/kabupatenRoutes');
@@ -15,6 +17,7 @@ const picGUdangRoutes = require('./routes/picGudangRoutes');
 const checkerGudangRoutes = require('./routes/checkerGudangRoutes');
 const kantorCabangRoutes = require('./routes/kantorCabangRoutes');
 const gudangRoutes = require('./routes/gudangRoutes');
+const masterdatakpmRoutes = require("./routes/masterDataKpmRoutes");
 const path = require('path');
 
 const app = express();
@@ -28,8 +31,8 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(
-    "/uploads/mobil",
-    express.static(path.join(__dirname, "uploads/mobil"))
+  "/uploads/mobil",
+  express.static(path.join(__dirname, "uploads/mobil"))
 );
 
 // Menggunakan routes
@@ -46,7 +49,8 @@ app.use('/api/picgudang', picGUdangRoutes);
 app.use('/api/checkergudang', checkerGudangRoutes);
 app.use('/api/kantorcabang', kantorCabangRoutes);
 app.use('/api/gudang', gudangRoutes);
+app.use('/api/masterdatakpm', masterdatakpmRoutes);
 
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server is running on http://localhost:${PORT}`);
 });
