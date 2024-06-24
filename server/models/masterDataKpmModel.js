@@ -26,10 +26,6 @@ const MasterDataKpm = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    qr_code_master_data_kpm: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
     createdAt: {
       type: DataTypes.DATE,
       defaultValue: DataTypes.NOW,
@@ -47,15 +43,11 @@ const MasterDataKpm = sequelize.define(
         masterdatakpm.nama_kpm = masterdatakpm.nama_kpm.toUpperCase();
         masterdatakpm.status_master_data_kpm =
           masterdatakpm.status_master_data_kpm.toUpperCase();
-        masterdatakpm.qr_code_master_data_kpm =
-          masterdatakpm.qr_code_master_data_kpm.toUpperCase();
       },
       beforeUpdate: (masterdatakpm) => {
         masterdatakpm.nama_kpm = masterdatakpm.nama_kpm.toUpperCase();
         masterdatakpm.status_master_data_kpm =
           masterdatakpm.status_master_data_kpm.toUpperCase();
-        masterdatakpm.qr_code_master_data_kpm =
-          masterdatakpm.qr_code_master_data_kpm.toUpperCase();
       },
     },
   }

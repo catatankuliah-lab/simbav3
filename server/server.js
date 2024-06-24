@@ -16,6 +16,7 @@ const checkerGudangRoutes = require("./routes/checkerGudangRoutes");
 const kantorCabangRoutes = require("./routes/kantorCabangRoutes");
 const gudangRoutes = require("./routes/gudangRoutes");
 const masterdatakpmRoutes = require("./routes/masterDataKpmRoutes");
+const woRoutes = require("./routes/woRoutes");
 const path = require("path");
 
 const app = express();
@@ -48,6 +49,7 @@ app.use("/api/checkergudang", checkerGudangRoutes);
 app.use("/api/kantorcabang", kantorCabangRoutes);
 app.use("/api/gudang", gudangRoutes);
 app.use("/api/masterdatakpm", masterdatakpmRoutes);
+app.use("/api/wo", woRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
