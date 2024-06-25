@@ -19,6 +19,10 @@ const kantorCabangRoutes = require('./routes/kantorCabangRoutes');
 const gudangRoutes = require('./routes/gudangRoutes');
 const masterdatakpmRoutes = require("./routes/masterDataKpmRoutes");
 const woRoutes = require("./routes/woRoutes");
+const loRoutes = require("./routes/loRoutes");
+const doRoutes = require("./routes/doRoutes");
+const sjtRoutes = require("./routes/sjtRoutes");
+const itemWoRoutes = require("./routes/itemWoRoutes");
 const path = require("path");
 
 const app = express();
@@ -52,6 +56,11 @@ app.use('/api/kantorcabang', kantorCabangRoutes);
 app.use('/api/gudang', gudangRoutes);
 app.use('/api/masterdatakpm', masterdatakpmRoutes);
 app.use('/api/wo', woRoutes);
+app.use('/api/lo', loRoutes);
+app.use('/api/do', doRoutes);
+app.use('/api/sjt', sjtRoutes);
+app.use('/api/itemwo', itemWoRoutes);
+
 
 
 
