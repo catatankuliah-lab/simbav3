@@ -37,7 +37,6 @@ app.use(
 );
 
 // Menggunakan routes
-<<<<<<< HEAD
 app.use('/api/alokasi', alokasiRoutes);
 app.use('/api/provinsi', provinsiRoutes);
 app.use('/api/kabupaten', kabupatenRoutes);
@@ -52,23 +51,9 @@ app.use('/api/checkergudang', checkerGudangRoutes);
 app.use('/api/kantorcabang', kantorCabangRoutes);
 app.use('/api/gudang', gudangRoutes);
 app.use('/api/masterdatakpm', masterdatakpmRoutes);
-=======
-app.use("/api/alokasi", alokasiRoutes);
-app.use("/api/provinsi", provinsiRoutes);
-app.use("/api/kabupaten", kabupatenRoutes);
-app.use("/api/kecamatan", kecamatanRoutes);
-app.use("/api/desa", desaRoutes);
-app.use("/api/hakakses", hakAksesRoutes);
-app.use("/api/user", userRoutes);
-app.use("/api/adminkancab", adminKancabRoutes);
-app.use("/api/petugaspenyalur", petugasPenyalurRoutes);
-app.use("/api/picgudang", picGUdangRoutes);
-app.use("/api/checkergudang", checkerGudangRoutes);
-app.use("/api/kantorcabang", kantorCabangRoutes);
-app.use("/api/gudang", gudangRoutes);
-app.use("/api/masterdatakpm", masterdatakpmRoutes);
-app.use("/api/wo", woRoutes);
->>>>>>> aldobaru
+app.use('/api/wo', woRoutes);
+
+
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
