@@ -1,4 +1,5 @@
 const HakAkses = require('../models/hakAksesModel');
+const User = require('../models/userModel');
 
 const addHakAkses = async (req, res) => {
     const {
@@ -26,7 +27,49 @@ const getAllHakAkses = async (req, res) => {
     }
 };
 
+const getDetailHakAkses = async (req, res) => {
+    const { id } = req.params;
+    try {
+        const hak_akses = await HakAkses.findByPk(id, {
+        });
+
+        if (!hak_akses) {
+            return res.status(404).json({ message: 'Hak akses not found' });
+        }
+
+        res.status(200).json(hak_akses);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Server Error');
+    }
+};
+
+const getDetailsHakAkses = async (req, res) => {
+    const { id } = req.params;
+    try {
+        const hak_akses = await HakAkses.findByPk(id, {
+            include: [
+                {
+                    model: User,
+                    as: "user_by_hak_akses",
+                }
+            ]
+        });
+
+        if (!hak_akses) {
+            return res.status(404).json({ message: 'Master Data KPM not found' });
+        }
+
+        res.status(200).json(hak_akses);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Server Error');
+    }
+};
+
 module.exports = {
     addHakAkses,
-    getAllHakAkses
+    getAllHakAkses,
+    getDetailHakAkses,
+    getDetailsHakAkses
 };

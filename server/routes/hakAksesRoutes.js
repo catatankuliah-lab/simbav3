@@ -2,10 +2,10 @@ const express = require('express');
 const router = express.Router();
 const hakAksesController = require('../controllers/hakAksesController');
 
-// Route untuk menambahkan mobil baru
 router.post('/add', hakAksesController.addHakAkses);
-
-// Route untuk membaca semua data mobil
 router.get('/all', hakAksesController.getAllHakAkses);
+router.get('/detail/:id', hakAksesController.getDetailHakAkses);
+router.get('/details/:id', hakAksesController.getDetailsHakAkses);
+
 
 module.exports = router;

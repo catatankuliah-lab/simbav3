@@ -36,7 +36,8 @@ const getAllPetugasPenyalur = async (req, res) => {
                 {
                     model: KantorCabang,
                     as: 'kantor_cabang',
-                }]
+                }
+            ]
         });
         res.status(200).send(petugas_penyalur);
     } catch (error) {

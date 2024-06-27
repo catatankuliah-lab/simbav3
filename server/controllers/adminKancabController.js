@@ -36,7 +36,8 @@ const getAllAdminKancab = async (req, res) => {
                 {
                     model: KantorCabang,
                     as: 'kantor_cabang',
-                }]
+                }
+            ]
         });
         res.status(200).send(admin_kancab);
     } catch (error) {

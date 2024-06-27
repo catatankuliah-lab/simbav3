@@ -52,6 +52,7 @@ const Kecamatan = sequelize.define(
 );
 
 Kecamatan.belongsTo(Kabupaten, { foreignKey: 'id_kabupaten_kota', as: 'kabupaten_kota' });
+Kabupaten.hasMany(Kecamatan, { foreignKey: 'id_kabupaten_kota', as: 'kecamatan_by_kabupaten' })
 
 
 module.exports = Kecamatan;

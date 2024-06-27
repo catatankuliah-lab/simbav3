@@ -1,23 +1,7 @@
-// controllers/mobilController.js
 const Kecamatan = require("../models/kecamatanModel");
 const Kabupaten = require("../models/kabupatenModel");
 const Provinsi = require("../models/provinsiModel");
-
-// Menangani permintaan untuk menambahkan mobil baru
-const addKecamatan = async (req, res) => {
-  const { kode_kecamatan, nama_kecamatan, id_kabupaten_kota } = req.body;
-  try {
-    const newKecamatan = await Kecamatan.create({
-      kode_kecamatan,
-      nama_kecamatan,
-      id_kabupaten_kota,
-    });
-    res.status(200).send(newKecamatan);
-  } catch (error) {
-    console.error(error);
-    res.status(500).send("Server Error");
-  }
-};
+const Desa = require("../models/desaModel");
 
 const getAllKecamatan = async (req, res) => {
   try {
@@ -40,7 +24,60 @@ const getAllKecamatan = async (req, res) => {
   }
 };
 
+const getDetailKecamatan = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const kecamatan = await Kecamatan.findByPk(id, {
+      include: [
+        {
+          model: Kabupaten,
+          as: 'kabupaten_kota',
+          include: [
+            {
+              model: Provinsi,
+              as: 'provinsi'
+            }
+          ]
+        }
+      ]
+    });
+
+    if (!kecamatan) {
+      return res.status(404).json({ message: 'Kecamatan not found' });
+    }
+
+    res.status(200).json(kecamatan);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Server Error');
+  }
+};
+
+const getDetailsKecamatan = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const kecamatan = await Kecamatan.findByPk(id, {
+      include: [
+        {
+          model: Desa,
+          as: "desa_kelurahan_by_kecamatan"
+        }
+      ]
+    });
+
+    if (!kecamatan) {
+      return res.status(404).json({ message: 'Desa not found' });
+    }
+
+    res.status(200).json(kecamatan);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Server Error');
+  }
+};
+
 module.exports = {
-  addKecamatan,
   getAllKecamatan,
+  getDetailKecamatan,
+  getDetailsKecamatan
 };

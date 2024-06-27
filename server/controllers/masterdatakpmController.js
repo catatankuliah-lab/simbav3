@@ -4,20 +4,16 @@ const Kecamatan = require("../models/kecamatanModel");
 const Kabupaten = require("../models/kabupatenModel");
 const Provinsi = require("../models/provinsiModel");
 
-
-// Menangani permintaan untuk menambahkan mobil baru
 const addMasterDataKpm = async (req, res) => {
     const {
         nama_kpm,
         status_master_data_kpm,
-        qr_master_data_kpm,
         id_desa_kelurahan,
     } = req.body;
     try {
         const newMasterDataKpm = await MasterDataKpm.create({
             nama_kpm,
             status_master_data_kpm,
-            qr_master_data_kpm,
             id_desa_kelurahan,
         });
         res.status(200).send(newMasterDataKpm);

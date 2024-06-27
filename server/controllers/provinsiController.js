@@ -1,19 +1,5 @@
 const Provinsi = require("../models/provinsiModel");
-
-const addProvinsi = async (req, res) => {
-  const { kode_provinsi, nama_provinsi } = req.body;
-
-  try {
-    const newProvinsi = await Provinsi.create({
-      kode_provinsi,
-      nama_provinsi,
-    });
-    res.status(200).send(newProvinsi);
-  } catch (error) {
-    console.error(req.body);
-    res.status(500).send("Server Error");
-  }
-};
+const Kabupaten = require("../models/kabupatenModel");
 
 const getAllProvinsi = async (req, res) => {
   try {
@@ -25,7 +11,46 @@ const getAllProvinsi = async (req, res) => {
   }
 };
 
+const getDetailProvinsi = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const provinsi = await Provinsi.findByPk(id, {});
+
+    if (!provinsi) {
+      return res.status(404).json({ message: 'Kabupaten not found' });
+    }
+
+    res.status(200).json(provinsi);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Server Error');
+  }
+};
+
+const getDetailsProvinsi = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const provinsi = await Provinsi.findByPk(id, {
+      include: [
+        {
+          model: Kabupaten,
+          as: "kabupaten_by_provinsi"
+        }
+      ]
+    });
+    if (!provinsi) {
+      return res.status(404).json({ message: 'Kecamatan not found' });
+    }
+
+    res.status(200).json(provinsi);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Server Error');
+  }
+};
+
 module.exports = {
-  addProvinsi,
   getAllProvinsi,
+  getDetailProvinsi,
+  getDetailsProvinsi
 };

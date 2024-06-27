@@ -46,13 +46,11 @@ const User = sequelize.define('user', {
     hooks: {
         beforeCreate: (user) => {
             user.username = user.username.toUpperCase();
-            user.password = user.password.toUpperCase();
             user.nama_user = user.nama_user.toUpperCase();
             user.status_user = user.status_user.toUpperCase();
         },
         beforeUpdate: (user) => {
             user.username = user.username.toUpperCase();
-            user.password = user.password.toUpperCase();
             user.nama_user = user.nama_user.toUpperCase();
             user.status_user = user.status_user.toUpperCase();
         }
@@ -60,5 +58,6 @@ const User = sequelize.define('user', {
 });
 
 User.belongsTo(HakAkses, { foreignKey: 'id_hak_akses', as: 'hak_akses' });
+HakAkses.hasMany(User, { foreignKey: 'id_hak_akses', as: 'user_by_hak_akses' });
 
 module.exports = User;
