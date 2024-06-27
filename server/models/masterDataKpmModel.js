@@ -53,9 +53,8 @@ const MasterDataKpm = sequelize.define(
   }
 );
 
-MasterDataKpm.belongsTo(Desa, {
-  foreignKey: "id_desa_kelurahan",
-  as: "desa_kelurahan",
-});
+MasterDataKpm.belongsTo(Desa, { foreignKey: "id_desa_kelurahan", as: "desa_kelurahan" });
+Desa.hasMany(MasterDataKpm, { foreignKey: "id_desa_kelurahan", as: "master_data_kpm_by_desa_kelurahan" });
+
 
 module.exports = MasterDataKpm;

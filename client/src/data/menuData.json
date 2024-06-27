@@ -4,43 +4,92 @@
             "text": "Dashboard",
             "icon": "bx bx-home",
             "available": true,
-            "link": "/"
+            "link": "/",
+            "roles": ["admin", "user"]
         }]
     },
     {
-        "header": "Mobil dan Driver",
+        "header": "Kantor Cabang",
         "items": [{
-                "text": "BBM",
-                "icon": "bx bx-gas-pump",
-                "available": true,
-                "link": "/bbm"
-            },
-            {
-                "text": "Jenis/Tipe Mobil",
+                "text": "Kantor Cabang",
                 "icon": "bx bx-folder",
                 "available": true,
-                "link": "/tipe"
+                "link": "/kantorcabang",
+                "roles": ["admin", "user"]
             },
             {
-                "text": "Mobil",
-                "icon": "bx bx-car",
-                "available": true,
-                "link": "/mobil"
-            },
-            {
-                "text": "Driver",
+                "text": "Admin Kantor Cabang",
                 "icon": "bx bx-user",
                 "available": true,
-                "link": "/driver"
+                "link": "/adminkantorcabang",
+                "roles": ["admin"]
+            },
+            {
+                "text": "Petugas Penyalur",
+                "icon": "bx bx-user",
+                "available": true,
+                "link": "/petugaspenyalur",
+                "roles": ["admin"]
+            }
+        ]
+    },
+    {
+        "header": "Gudang",
+        "items": [{
+                "text": "Gudang",
+                "icon": "bx bx-folder",
+                "available": true,
+                "link": "/gudang",
+                "roles": ["admin", "user"]
+            },
+            {
+                "text": "PIC Gudang",
+                "icon": "bx bx-user",
+                "available": true,
+                "link": "/picgudang",
+                "roles": ["admin"]
+            },
+            {
+                "text": "Checker Gudang",
+                "icon": "bx bx-user",
+                "available": true,
+                "link": "/checkergudang",
+                "roles": ["admin"]
             }
         ]
     }, {
-        "header": "Maintenance",
+        "header": "KPM",
         "items": [{
-            "text": "Data Maintenance",
-            "icon": "bx bx-cog",
-            "available": true,
-            "link": "/maintenance"
-        }]
+                "text": "Master Data KPM",
+                "icon": "bx bx-user",
+                "available": true,
+                "link": "/kpm",
+                "roles": ["admin", "user"]
+            },
+            {
+                "text": "KPM Pengganti",
+                "icon": "bx bx-user-plus",
+                "available": true,
+                "link": "/kpmpengganti",
+                "roles": ["admin"]
+            }
+        ]
+    }, {
+        "header": "DTT",
+        "items": [{
+                "text": "DTT",
+                "icon": "bx bx-folder",
+                "available": true,
+                "link": "/dtt",
+                "roles": ["admin", "user"]
+            },
+            {
+                "text": "Undangan",
+                "icon": "bx bx-file",
+                "available": true,
+                "link": "/undangan",
+                "roles": ["admin"]
+            }
+        ]
     }
 ]

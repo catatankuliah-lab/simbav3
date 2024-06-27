@@ -1,9 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const {
-  connectDB
-} = require('./config/database');
+
+const { sequelize, connectDB } = require('./config/database');
+
 const alokasiRoutes = require('./routes/alokasiRoutes');
 const provinsiRoutes = require('./routes/provinsiRoutes');
 const kabupatenRoutes = require('./routes/kabupatenRoutes');
@@ -17,13 +17,16 @@ const picGUdangRoutes = require('./routes/picGudangRoutes');
 const checkerGudangRoutes = require('./routes/checkerGudangRoutes');
 const kantorCabangRoutes = require('./routes/kantorCabangRoutes');
 const gudangRoutes = require('./routes/gudangRoutes');
-const masterdatakpmRoutes = require('./routes/masterDataKpmRoutes');
 const woRoutes = require('./routes/woRoutes');
 const loRoutes = require('./routes/loRoutes');
 const doRoutes = require('./routes/doRoutes');
 const sjtRoutes = require('./routes/sjtRoutes');
 const itemWoRoutes = require('./routes/itemWoRoutes');
-const path = require("path");
+const dttRoutes = require('./routes/dttRoutes');
+const masterdatakpmRoutes = require("./routes/masterDataKpmRoutes");
+const kpmRoutes = require("./routes/kpmRoutes");
+
+const path = require('path');
 
 const app = express();
 const PORT = 5050;
@@ -54,12 +57,14 @@ app.use('/api/picgudang', picGUdangRoutes);
 app.use('/api/checkergudang', checkerGudangRoutes);
 app.use('/api/kantorcabang', kantorCabangRoutes);
 app.use('/api/gudang', gudangRoutes);
+app.use('/api/dtt', dttRoutes);
 app.use('/api/masterdatakpm', masterdatakpmRoutes);
 app.use('/api/wo', woRoutes);
 app.use('/api/lo', loRoutes);
 app.use('/api/do', doRoutes);
 app.use('/api/sjt', sjtRoutes);
 app.use('/api/itemwo', itemWoRoutes);
+app.use('/api/kpm', kpmRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

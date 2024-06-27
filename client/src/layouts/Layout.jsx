@@ -1,19 +1,22 @@
-import React, { useEffect } from 'react';
-import PropTypes from 'prop-types'; // Import prop-types
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import Sidebar from './Sidebar';
 import Navbar from './Navbar';
 import Footer from './Footer';
 // import Main from '../main';
 
 const Layout = ({ children }) => {
+  const [userRole, setUserRole] = useState('admin');
+
   useEffect(() => {
+    // eslint-disable-next-line no-undef
     Main();
-  },[]);
+  }, []);
 
   return (
     <div className="layout-wrapper layout-content-navbar">
       <div className="layout-container">
-        <Sidebar />
+        <Sidebar userRole={userRole} />
         <div className="layout-page">
           <Navbar />
           <div className="content-wrapper">

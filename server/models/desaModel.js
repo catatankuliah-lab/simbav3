@@ -52,5 +52,6 @@ const Desa = sequelize.define(
 );
 
 Desa.belongsTo(Kecamatan, { foreignKey: 'id_kecamatan', as: 'kecamatan' });
+Kecamatan.hasMany(Desa, { foreignKey: 'id_kecamatan', as: 'desa_kelurahan_by_kecamatan' });
 
 module.exports = Desa;

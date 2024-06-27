@@ -2,10 +2,8 @@ const express = require("express");
 const router = express.Router();
 const kabupatenController = require("../controllers/kabupatenController");
 
-// Route untuk menambahkan mobil baru
-router.post("/add", kabupatenController.addKabupaten);
-
-// Route untuk membaca semua data mobil
 router.get("/all", kabupatenController.getAllKabupaten);
+router.get("/detail/:id", kabupatenController.getDetailKabupaten);
+router.get("/details/:id", kabupatenController.getDetailsKabupaten);
 
 module.exports = router;
