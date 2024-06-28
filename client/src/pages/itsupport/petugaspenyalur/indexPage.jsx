@@ -68,12 +68,14 @@ const IndexDTTPage = () => {
                                                 <hr />
                                                 <div className="col-md-12 col-sm-12 mt-0 mt-md-3">
                                                     <p style={{ marginBottom: "2px" }}>
-                                                        Nomor Telpon : +628181623612836
+                                                        Nomor Telepon : {petugas_penyalur.user.nomor_telepon}
                                                     </p>
                                                     <p style={{ marginBottom: "2px" }}>
                                                         {petugas_penyalur.kantor_cabang.nama_kantor_cabang}
                                                     </p>
-                                                    <p>Alamat Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus veniam error qui esse quae ullam reprehenderit, nostrum iusto quo perferendis sunt nisi eius! Rerum harum doloribus ipsa ad, soluta totam.</p>
+                                                    <p>
+                                                        {petugas_penyalur.user.alamat_user}
+                                                    </p>
                                                     <p className='d-none' >
                                                         <button className="btn btn-link p-0" onClick={() => handleEditDataClick(petugas_penyalur.id_petugas_penyalur)}>
                                                             <i className="tf-icons bx bx-edit me-2"></i> EDIT DATA

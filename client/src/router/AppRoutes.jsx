@@ -9,6 +9,7 @@ import ITSupportIndexPICGudangPage from '../pages/itsupport/picgudang/indexPage'
 import ITSupportIndexCheckerGudangPage from '../pages/itsupport/checkergudang/indexPage';
 import IndexMasterDataKPMPage from '../pages/itsupport/masterdatakpm/indexPage';
 import IndexDTTPage from '../pages/itsupport/dtt/indexPage';
+import IndexWoPage from '../pages/itsupport/wo/indexPage';
 
 const AppRoutes = () => {
     return (
@@ -22,6 +23,7 @@ const AppRoutes = () => {
             <Route path="/checkergudang" element={<ITSupportIndexCheckerGudangPage />} />
             <Route path="/kpm" element={<IndexMasterDataKPMPage />} />
             <Route path="/dtt" element={<IndexDTTPage />} />
+            <Route path="/wo" element={<IndexWoPage />} />
         </Routes>
     );
 };

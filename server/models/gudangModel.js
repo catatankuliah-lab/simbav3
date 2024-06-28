@@ -22,6 +22,10 @@ const Gudang = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    alamat_gudang: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     createdAt: {
       type: DataTypes.DATE,
       defaultValue: DataTypes.NOW,

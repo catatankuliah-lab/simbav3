@@ -56,5 +56,6 @@ const ItemWo = sequelize.define('itemwo', {
 
 ItemWo.belongsTo(Desa, { foreignKey: 'id_desa_kelurahan', as: 'desa_kelurahan' });
 ItemWo.belongsTo(Wo, { foreignKey: 'id_wo', as: 'wo' });
+Wo.hasMany(ItemWo, { foreignKey: 'id_wo', as: 'item_wo' });
 
 module.exports = ItemWo;

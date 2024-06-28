@@ -91,5 +91,22 @@
                 "roles": ["admin"]
             }
         ]
+    }, {
+        "header": "DOKUMEN",
+        "items": [{
+                "text": "WO",
+                "icon": "bx bx-folder",
+                "available": true,
+                "link": "/wo",
+                "roles": ["admin", "user"]
+            },
+            {
+                "text": "LO",
+                "icon": "bx bx-file",
+                "available": true,
+                "link": "/lo",
+                "roles": ["admin"]
+            }
+        ]
     }
 ]

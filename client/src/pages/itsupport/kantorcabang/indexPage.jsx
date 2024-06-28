@@ -72,7 +72,7 @@ const ITSupportIndexKantorCabangPage = () => {
                                                     <img src={`./assets/img/logos/loginimage.png`} alt="Tampak Depan Mobil" style={{ width: '100%', height: 'auto' }} />
                                                 </div>
                                                 <div className="col-md-12 col-sm-12 mt-3 mt-md-3">
-                                                    <p>Alamat Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus veniam error qui esse quae ullam reprehenderit, nostrum iusto quo perferendis sunt nisi eius! Rerum harum doloribus ipsa ad, soluta totam.</p>
+                                                    <p>{kantorcabang.alamat_kantor_cabang}</p>
                                                     <p className='d-none' >
                                                         <button className="btn btn-link p-0" onClick={() => handleEditDataClick(kantorcabang.id_kantor_cabang)}>
                                                             <i className="tf-icons bx bx-edit me-2"></i> EDIT DATA

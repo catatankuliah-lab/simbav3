@@ -68,7 +68,7 @@ const ITSupportIndexCheckerGudangPage = () => {
                                                 <hr />
                                                 <div className="col-md-12 col-sm-12 mt-0 mt-md-3">
                                                     <p style={{ marginBottom: "2px" }}>
-                                                        Nomor Telpon : +628181623612836
+                                                        Nomor Telpon : {gudang.user.nomor_telepon} 
                                                     </p>
                                                     <p style={{ marginBottom: "2px" }}>
                                                         {gudang.gudang.kantor_cabang.nama_kantor_cabang}
@@ -76,7 +76,9 @@ const ITSupportIndexCheckerGudangPage = () => {
                                                     <p style={{ marginBottom: "2px" }}>
                                                         {gudang.gudang.nama_gudang}
                                                     </p>
-                                                    <p>Alamat Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus veniam error qui esse quae ullam reprehenderit, nostrum iusto quo perferendis sunt nisi eius! Rerum harum doloribus ipsa ad, soluta totam.</p>
+                                                    <p>
+                                                        {gudang.user.alamat_user}
+                                                    </p>
                                                     <p className='d-none' >
                                                         <button className="btn btn-link p-0" onClick={() => handleEditDataClick(gudang.id_gudang)}>
                                                             <i className="tf-icons bx bx-edit me-2"></i> EDIT DATA

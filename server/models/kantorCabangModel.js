@@ -11,6 +11,10 @@ const KantorCabang = sequelize.define('kantor_cabang', {
         type: DataTypes.STRING,
         allowNull: false
     },
+    alamat_kantor_cabang: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
     createdAt: {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW

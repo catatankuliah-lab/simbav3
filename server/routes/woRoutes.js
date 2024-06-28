@@ -6,4 +6,8 @@ router.post('/add', woController.addWo);
 
 router.get('/all', woController.getAllWo);
 
+router.get('/detail/:id', woController.getDetailWO);
+
+router.get('/details/:id', woController.getDetailsWO);
+
 module.exports = router;

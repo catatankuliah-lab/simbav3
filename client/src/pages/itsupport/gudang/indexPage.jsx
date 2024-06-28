@@ -75,7 +75,7 @@ const IndexgudangPage = () => {
                                                     <p style={{ marginBottom: "2px" }}>
                                                         {gudang.kantor_cabang.nama_kantor_cabang}
                                                     </p>
-                                                    <p>Alamat Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus veniam error qui esse quae ullam reprehenderit, nostrum iusto quo perferendis sunt nisi eius! Rerum harum doloribus ipsa ad, soluta totam.</p>
+                                                    <p>{gudang.alamat_gudang}</p>
                                                     <p className='d-none' >
                                                         <button className="btn btn-link p-0" onClick={() => handleEditDataClick(gudang.id_gudang)}>
                                                             <i className="tf-icons bx bx-edit me-2"></i> EDIT DATA
