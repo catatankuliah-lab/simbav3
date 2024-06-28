@@ -33,8 +33,8 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(
-    "/uploads/mobil",
-    express.static(path.join(__dirname, "uploads/mobil"))
+  "/uploads/mobil",
+  express.static(path.join(__dirname, "uploads/mobil"))
 );
 
 // Menggunakan routes
@@ -56,5 +56,5 @@ app.use('/api/masterdatakpm', masterdatakpmRoutes);
 app.use('/api/kpm', kpmRoutes);
 
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server is running on http://localhost:${PORT}`);
 });
