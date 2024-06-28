@@ -129,6 +129,14 @@ const getDetailsWO = async (req, res) => {
                     as: 'alokasi',
                 },
                 {
+                    model: Gudang,
+                    as: 'gudang',
+                    include: {
+                        model: KantorCabang,
+                        as: "kantor_cabang",
+                    },
+                },
+                {
                     model: ItemWo,
                     as: 'item_wo',
                     include: [

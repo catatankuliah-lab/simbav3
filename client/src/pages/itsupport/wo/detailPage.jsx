@@ -31,7 +31,7 @@ const DetailPage = ({ handleBackClick, id }) => {
                 <div className="mb-3">
                     <div className="divider text-start">
                         <div className="divider-text">
-                            {/* <span className="menu-header-text fs-6 fw-bold">Detail {WO.nomor_wo}</span> */}
+                            <span className="menu-header-text fs-6 fw-bold">Detail {WO.nomor_wo}</span>
                         </div>
                     </div>
                 </div>
@@ -60,29 +60,17 @@ const DetailPage = ({ handleBackClick, id }) => {
                         <input className="form-control" type="text" id="total_tonase" name="total_tonase" value={WO.total_tonase} readOnly />
                     </div>
                     <div className="col-md-4 col-sm-12 mb-3">
-                        <label htmlFor="tonase_tersalurkan" className="form-label">Tonase Tersalurkan</label>
-                        <input className="form-control" type="text" id="tonase_tersalurkan" name="tonase_tersalurkan" value={WO.item_wo.tonase_tersalurkan_wo} readOnly />
+                        <label htmlFor="tonase_tersalurkan" className="form-label">Gudang</label>
+                        <input className="form-control" type="text" id="tonase_tersalurkan" name="tonase_tersalurkan" value={WO.gudang.nama_gudang} readOnly />
                     </div>
                     <div className="col-md-4 col-sm-12 mb-3">
-                        <label htmlFor="sisa_tonase" className="form-label">Sisa Tonase</label>
-                        <input className="form-control" type="text" id="sisa_tonase" name="sisa_tonase" value={WO.tonase_sisa_wo} readOnly />
+                        <label htmlFor="sisa_tonase" className="form-label">Kantor Cabang</label>
+                        <input className="form-control" type="text" id="sisa_tonase" name="sisa_tonase" value={WO.gudang.kantor_cabang.nama_kantor_cabang} readOnly />
                     </div>
-                    {/* <div className="col-md-4 col-sm-12 mb-3">
-                        <label htmlFor="nama_desa_kelurahan" className="form-label">Nama Desa/Kelurahan</label>
-                        <input className="form-control" type="text" id="nama_desa_kelurahan" name="nama_desa_kelurahan" value={WO.item_wo.desa_kelurahan.nama_desa_kelurahan} readOnly />
-                    </div> */}
-                    {/* <div className="col-md-4 col-sm-12 mb-3">
-                        <label htmlFor="nama_kecamatan" className="form-label">Nama Kecamatan</label>
-                        <input className="form-control" type="text" id="nama_kecamatan" name="nama_kecamatan" value={WO.item_wo.desa_kelurahan.kecamatan.nama_kecamatan} readOnly />
-                    </div> */}
-                    {/* <div className="col-md-4 col-sm-12 mb-3">
-                        <label htmlFor="nama_kabupaten_kota" className="form-label">Nama Kabupaten/Kota</label>
-                        <input className="form-control" type="text" id="nama_kabupaten_kota" name="nama_kabupaten_kota" value={WO.item_wo.desa_kelurahan.kecamatan.kabupaten_kota.nama_kabupaten_kota} readOnly />
-                    </div> */}
-                    {/* <div className="col-md-4 col-sm-12 mb-3">
-                        <label htmlFor="nama_provinsi" className="form-label">Nama Provinsi</label>
-                        <input className="form-control" type="text" id="nama_provinsi" name="nama_provinsi" value={WO.item_wo.desa_kelurahan.kecamatan.kabupaten_kota.provinsi.nama_provinsi} readOnly />
-                    </div> */}
+                    <div className="col-md-4 col-sm-12 mb-3">
+                        <label htmlFor="nama_desa_kelurahan" className="form-label">Tanggal Working Order</label>
+                        <input className="form-control" type="text" id="nama_desa_kelurahan" name="nama_desa_kelurahan" value={WO.tanggal_wo.slice(0,10)} readOnly />
+                    </div>
                 </div>
             </div>
             <div className="col-md-12 mb-4 mb-md-0 mt-3">
@@ -91,20 +79,20 @@ const DetailPage = ({ handleBackClick, id }) => {
                         <thead>
                             <tr>
                                 <th>NO</th>
-                                <th>ID WO</th>
-                                <th>Nomor WO</th>
                                 <th>Desa/Kelurahan</th>
-                                <th>Status WO</th>
+                                <th>Tonase Desa/Kelurahan</th>
+                                <th>Tonase Yang Tersalurkan</th>
+                                <th>Sisa Tonase</th>
                             </tr>
                         </thead>
                         <tbody>
                             {WO.item_wo.map((itemWo) => (
                                 <tr key={itemWo.id_wo}>
                                     <td>{nomor++}</td>
-                                    <td>{itemWo.id_wo}</td>
-                                    <td>{itemWo.nomor_wo}</td>
                                     <td>{itemWo.desa_kelurahan.nama_desa_kelurahan}</td>
-                                    <td>{itemWo.status_wo}</td>
+                                    <td>{itemWo.tonase_desa_kelurahan}</td>
+                                    <td>{itemWo.tonase_tersalurkan_wo}</td>
+                                    <td>{itemWo.tonase_sisa_wo}</td>
                                 </tr>
                             ))}
                         </tbody>
