@@ -6,4 +6,8 @@ router.post('/add', loController.addLo);
 
 router.get('/all', loController.getAllLo);
 
+router.get('/detail/:id', loController.getDetailLO);
+
+router.get('/details/:id', loController.getDetailsLO);
+
 module.exports = router;

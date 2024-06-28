@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
+import QRCode from 'qrcode.react';
 
 const DetailPage = ({ handleBackClick, id }) => {
     const [DTT, setDTT] = useState(null);
@@ -79,9 +80,15 @@ const DetailPage = ({ handleBackClick, id }) => {
                         <label htmlFor="nama_kabupaten_kota" className="form-label">Nama Kabupaten/Kota</label>
                         <input className="form-control" type="text" id="nama_kabupaten_kota" name="nama_kabupaten_kota" value={DTT.desa_kelurahan.kecamatan.kabupaten_kota.nama_kabupaten_kota} readOnly />
                     </div>
-                    <div className="col-md-4 col-sm-12 mb-3">
+                    <div className="col-md-4 col-sm-12 mb-4">
                         <label htmlFor="nama_provinsi" className="form-label">Nama Provinsi</label>
                         <input className="form-control" type="text" id="nama_provinsi" name="nama_provinsi" value={DTT.desa_kelurahan.kecamatan.kabupaten_kota.provinsi.nama_provinsi} readOnly />
+                    </div>
+                    <div className="col-md-6 col-sm-12 mb-3">
+                        <button className='btn btn-primary w-100' >Print DTT</button>
+                    </div>
+                    <div className="col-md-6 col-sm-12">
+                        <button className='btn btn-primary w-100' >Print Undangan</button>
                     </div>
                 </div>
             </div>
@@ -91,7 +98,7 @@ const DetailPage = ({ handleBackClick, id }) => {
                         <thead>
                             <tr>
                                 <th>NO</th>
-                                <th>ID KPM</th>
+                                <th>QR CODE</th>
                                 <th>Nama KPM</th>
                                 <th>Status KPM</th>
                                 <th>Desa/Kelurahan</th>
@@ -100,8 +107,8 @@ const DetailPage = ({ handleBackClick, id }) => {
                         <tbody>
                             {DTT.kpm.map((kpm) => (
                                 <tr key={kpm.id_kpm}>
-                                    <td>{nomor++}</td>
-                                    <td>{kpm.id_kpm}</td>
+                                    <td style={{ width: "5px" }} >{nomor++}</td>
+                                    <td style={{ width: "50" }} ><QRCode value={DTT.qr_dtt} size={50} /></td>
                                     <td>{kpm.master_data_kpm.nama_kpm}</td>
                                     <td>{kpm.status_kpm}</td>
                                     <td>{kpm.master_data_kpm.desa_kelurahan.nama_desa_kelurahan}</td>
